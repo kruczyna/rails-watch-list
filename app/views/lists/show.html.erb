@@ -3,5 +3,10 @@
 <ul>
 <% @list.bookmarks.each do |bookmark| %>
   <li><%= bookmark.comment %></li>
+  <%= link_to "Delete",
+    list_bookmark_path(@list, bookmark), # Generates a link to the destroy action for the specific bookmark within the list
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+
 <% end %>
 </ul>
